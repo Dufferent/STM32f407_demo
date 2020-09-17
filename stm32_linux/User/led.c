@@ -46,9 +46,9 @@ void Led_Write(int index,int state)
         GPIOC_R->ODR |= ( 0x1<<((index-1)%7) );             // [ 灭灯 ]
     */
     if( state && (index>=0) )
-        GPIOC->ODR &= ( ~(0x1<<((index-1)%7) ) );           // [ 亮灯 ]
+        GPIOC->ODR &= ( ~(0x1<<((index)%8) ) );           // [ 亮灯 ]
     else if( !state && (index>=0) )
-        GPIOC->ODR |= ( 0x1<<((index-1)%7) );               // [ 灭灯 ]
+        GPIOC->ODR |= ( 0x1<<((index)%8) );               // [ 灭灯 ]
 }
 
 void mydelay(int ms)                                        // [ 不准 ]
