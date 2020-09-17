@@ -16,7 +16,7 @@ FLAG = -g -W -Wall -std=c99 \
 -lm -lc -mcpu=cortex-m4 -mthumb \
 -DSTM32F407xx -DHSE_VALUE=8000000 -D__CC_ARM 
 
-LD_FLAG = -lc -lm -mcpu=cortex-m4 -mthumb -Wl,-u,Reset_Handler -Wl,--gc-sections
+LD_FLAG = -lc -lm -mcpu=cortex-m4 -mthumb -Wl,--gc-sections #-Wl,-u,Reset_Handler 
 
 VPATH = ./     :\
 		./User :\

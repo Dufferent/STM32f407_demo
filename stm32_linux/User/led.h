@@ -12,6 +12,7 @@
 //[ 原理图参考自己的开发板   ] ----- [ ... ]
 /*
 #define RCC_BASE            (0x40023800U)
+
 #define AHB1_ENR_BASE       (0x40023830U)
 
 //[ GPIOC挂在AHB1上 ] --- [ 使能AHB1的时间 ]

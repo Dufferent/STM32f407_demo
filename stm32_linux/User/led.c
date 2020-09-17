@@ -45,9 +45,9 @@ void Led_Write(int index,int state)
     else if( !state && (index>0) )
         GPIOC_R->ODR |= ( 0x1<<((index-1)%7) );             // [ 灭灯 ]
     */
-    if( state && (index>0) )
+    if( state && (index>=0) )
         GPIOC->ODR &= ( ~(0x1<<((index-1)%7) ) );           // [ 亮灯 ]
-    else if( !state && (index>0) )
+    else if( !state && (index>=0) )
         GPIOC->ODR |= ( 0x1<<((index-1)%7) );               // [ 灭灯 ]
 }
 
@@ -69,9 +69,11 @@ void mydelay(int ms)                                        // [ 不准 ]
 void Led_Flash(int delay)
 {
     // [ 放在循环里 ]
-    Led_Write(1,ON);
+    for(int i=0;i<8;i++)
+        Led_Write(i,ON);
     mydelay(delay);
-    Led_Write(1,OFF);
+    for(int i=0;i<8;i++)
+        Led_Write(i,OFF);
     mydelay(delay);
 }
 

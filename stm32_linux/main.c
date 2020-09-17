@@ -11,8 +11,8 @@ int main(void)
     mydelay(1000);
     while(1)
     {
-        //Led_Flash(100);
-        Led_Flow();
+        Led_Flash(500);
+        //Led_Flow();
     }
     
     return 0;
