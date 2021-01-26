@@ -71,4 +71,15 @@
 		[ flash probe 0 <find the flash start address> ]
 		[ stm32f4 mass_erase 0]
 		[ flash write_bank 0(rank) <../*.bin> 0(offerset) ]
+		[telnet localhost 4444
+		 
+		>reset halt                         //要先挂起才能开始擦除
+		>flash erase_sector 0 0 last        //全部擦除
+		>flash write_image xxx.hex/bin/elf  //完成
+		>reset
+		或者
+		>halt
+		>flash write_image erase xxx.bin/hex/elf 0  //自动擦除并从0地址开始                   
+		>reset                                      //啦啦啦快看你的板子～
+		]
 //[ Thats all ]
